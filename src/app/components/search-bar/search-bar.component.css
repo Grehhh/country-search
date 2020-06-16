@@ -1,0 +1,40 @@
+* {
+    text-align: center;
+}
+
+input, button{
+    font-size: 0.9em;
+
+}
+
+h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#search-bar {
+    background-color: rgb(208, 208, 208);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+input {
+    border: none;
+    background-color: white;
+    text-align: left !important;
+    height: 30px;
+    width: 80%;
+    padding-left: 4px;
+    margin-left: 3px;
+}
+
+button {
+    background-color: rgb(208, 208, 208);
+    border: none;
+    height: 32px;
+    color: blue;
+    margin-left: 6px;
+}
+
+

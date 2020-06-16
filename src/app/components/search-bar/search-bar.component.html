@@ -1,0 +1,11 @@
+<div>
+    <h1>Country Search</h1>
+    <div id="search-bar">
+        <input type="text" placeholder="Insert a country">
+        <button id="cancel">Cancel</button>
+    </div>
+</div>
+
+<div *ngFor='let country of countries'>
+    <p>{{ country.name }}</p>
+</div> 
