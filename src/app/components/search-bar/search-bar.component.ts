@@ -10,13 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class SearchBarComponent implements OnInit {
 
+  selectedcountry: Country;
 
   constructor(private countryService: CountrySearchService) { }
   
-  countries: Country[];
+  countries: Country[] = [];
 
-  getCountry(): void {
-    this.countryService.getCountry()
+  getCountries(): void {
+    this.countryService.getCountries()
     .subscribe(
       (data => { 
         this.countries = data;
@@ -28,8 +29,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCountry();
-    console.log(this.countries);
+    this.getCountries();
   }
 
 }

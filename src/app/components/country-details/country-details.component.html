@@ -1,12 +1,14 @@
-<div class="container">
-    <header>
-        <button>&lt; Back</button>
-        <h1>Afganistan</h1>
-    </header>
-    <div class="content">
-        <p>Name</p>
-        <p>Native name</p>
-        <p>Region</p>
-        <p>Capital</p>
+<div *ngIf="country" class="container">
+    <div *ngFor="let details of country">
+        <header>
+            <button>&lt; Back</button>
+            <h1>{{ details.name }}</h1>
+        </header>
+        <div class="content">
+            <p>Name: {{ details.name }}</p>
+            <p>Native name: {{ details.nativeName }}</p>
+            <p>Region: {{ details.region }}</p>
+            <p>Capital: {{ details.capital }}</p>
+        </div>
     </div>
 </div>

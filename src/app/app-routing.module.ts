@@ -6,7 +6,7 @@ import { CountryDetailsComponent } from './components/country-details/country-de
 const routes: Routes = [
   { path: '', redirectTo: 'search-bar', pathMatch: 'full'},
   { path: 'search-bar', component: SearchBarComponent },
-  { path: 'country-details', component: CountryDetailsComponent }
+  { path: 'country-details/:name', component: CountryDetailsComponent }
 ];
 
 @NgModule({
