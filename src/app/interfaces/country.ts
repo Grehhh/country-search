@@ -3,6 +3,9 @@ export interface Country {
     nativeName: string;
     region: string;
     capital: string;
-    area:string;
+    area: number;
+    languages: [];
+    flag: string;
+    translations_de: string;
 
 }

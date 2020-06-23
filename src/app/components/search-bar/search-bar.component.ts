@@ -14,14 +14,14 @@ export class SearchBarComponent implements OnInit {
 
   constructor(private countryService: CountrySearchService) { }
   
-  countries: Country[] = [];
+  countries: Country[]= [];
 
   getCountries(): void {
     this.countryService.getCountries()
     .subscribe(
       (data => { 
         this.countries = data;
-        console.log(this.countries);
+        // console.log(this.countries);
       }),
       (error) => {
         console.error(error);

@@ -1,14 +1,18 @@
 <div *ngIf="country" class="container">
     <div *ngFor="let details of country">
         <header>
-            <button>&lt; Back</button>
+            <button (click)="goBack()">&lt; Back</button>
             <h1>{{ details.name }}</h1>
         </header>
+        <img [src]="details.flag" class="flag">
         <div class="content">
             <p>Name: {{ details.name }}</p>
             <p>Native name: {{ details.nativeName }}</p>
             <p>Region: {{ details.region }}</p>
             <p>Capital: {{ details.capital }}</p>
+            <p>Area: {{ details.area }}</p>
+            <p>Languages: <span>{{ langToShow }} </span></p>
+            <p>Translation to german: {{ details.translations.de }}</p>
         </div>
     </div>
 </div>

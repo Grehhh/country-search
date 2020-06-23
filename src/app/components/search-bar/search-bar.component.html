@@ -10,7 +10,7 @@
         </select> -->
         <li *ngFor="let country of countries">
             <a routerLink="/country-details/{{ country.name }}">
-              <span>{{ country.name }}</span>
+              {{ country.name }}
             </a>
         </li>
     </div>

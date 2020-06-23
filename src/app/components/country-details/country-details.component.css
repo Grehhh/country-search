@@ -19,8 +19,12 @@ h1 {
 }
 
 .content {
-    padding-top: 50px;
+    padding-top: 40px;
     padding-left: 10px;
+}
+
+.flag {
+    width: 100%;
 }
 
 p {
