@@ -30,10 +30,7 @@ export class CountryDetailsComponent implements OnInit {
       this.langToShow = this.languages.join(', ');
       // console.log(this.langToShow);
       console.log('toGerman',this.country[0].translations.de )
-
-
-      
-      
+ 
     });
   }
 

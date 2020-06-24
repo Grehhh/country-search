@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../../interfaces/country';
 import { CountrySearchService } from '../../services/country-search.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,22 +15,34 @@ export class SearchBarComponent implements OnInit {
 
   constructor(private countryService: CountrySearchService) { }
   
-  countries: Country[]= [];
+  // countries: Country[]= [];
+  countries$: Observable<Country[]>;
+  private searchString = new Subject<string>();     //Subject es tanto una fuente de valores observables como unobservable en si mismo  
 
-  getCountries(): void {
-    this.countryService.getCountries()
-    .subscribe(
-      (data => { 
-        this.countries = data;
-        // console.log(this.countries);
-      }),
-      (error) => {
-        console.error(error);
-      });
+  // getCountries(): void {
+  //   this.countryService.getCountries()
+  //   .subscribe(
+  //     (data => { 
+  //       this.countries = data;
+  //       // console.log(this.countries);
+  //     }),
+  //     (error) => {
+  //       console.error(error);
+  //     });
+  // }
+
+  search(term: string): void {
+    this.searchString.next(term);
   }
 
   ngOnInit() {
-    this.getCountries();
+    // this.getCountries();
+    this.countries$ = this.searchString.pipe(
+
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term: string) => this.countryService.searchCountries(term)),
+    );
   }
 
 }

@@ -7,5 +7,4 @@ export interface Country {
     languages: [];
     flag: string;
     translations_de: string;
-
 }

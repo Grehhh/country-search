@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-// import { Country } from '../interfaces/country';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';    //para cuando eta observables
+import { Observable } from 'rxjs';    //para cuando eta observables
 import { Country } from '../interfaces/country'
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -19,8 +18,12 @@ export class CountrySearchService {
 
   constructor(private http: HttpClient) { }
 
-  getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>(this.countriesUrl + 'all');
+  // getCountries(): Observable<Country[]> {
+  //   return this.http.get<Country[]>(this.countriesUrl + 'all');
+  // }
+
+  searchCountries(term: String) {
+    return this.http.get<Country[]>(`${this.countriesUrl}name/${term}`);
   }
 
   getCountry(name: String): Observable<Country> {

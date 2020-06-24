@@ -1,18 +1,21 @@
 <div>
     <h1>Country Search</h1>
     <div id="search-bar">
-        <input type="text" placeholder="Insert a country">
-        <!-- <button id="cancel">Cancel</button>
-        <select name="countries" id="countries">
-            <option [value]="country" *ngFor='let country of countries'>
-                <a routerLink="country-details/{{country.name}}">{{ country.name }}</a>
-            </option>
-        </select> -->
-        <li *ngFor="let country of countries">
+        <!-- <input type="text" placeholder="Insert a country"> -->
+
+        <!-- <li *ngFor="let country of countries">
             <a routerLink="/country-details/{{ country.name }}">
               {{ country.name }}
             </a>
-        </li>
+        </li> -->
+
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+        <ul class="search-result">
+            <li *ngFor="let country of countries$ | async" >
+              <a routerLink="/country-details/{{ country.name }}">{{ country.name }}</a>
+            </li>
+        </ul>
     </div>
 </div>
 
