@@ -19,18 +19,6 @@ export class SearchBarComponent implements OnInit {
   countries$: Observable<Country[]>;
   private searchString = new Subject<string>();     //Subject es tanto una fuente de valores observables como unobservable en si mismo  
 
-  // getCountries(): void {
-  //   this.countryService.getCountries()
-  //   .subscribe(
-  //     (data => { 
-  //       this.countries = data;
-  //       // console.log(this.countries);
-  //     }),
-  //     (error) => {
-  //       console.error(error);
-  //     });
-  // }
-
   search(term: string): void {
     this.searchString.next(term);
   }
