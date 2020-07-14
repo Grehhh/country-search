@@ -23,6 +23,11 @@ export class SearchBarComponent implements OnInit {
     this.searchString.next(term);
   }
 
+  delete(string: String) {  
+    string = '';  
+    console.log(string);
+  }
+  
   ngOnInit() {
     // this.getCountries();
     this.countries$ = this.searchString.pipe(
