@@ -15,17 +15,11 @@ export class SearchBarComponent implements OnInit {
 
   constructor(private countryService: CountrySearchService) { }
   
-  // countries: Country[]= [];
   countries$: Observable<Country[]>;
   private searchString = new Subject<string>();     //Subject es tanto una fuente de valores observables como unobservable en si mismo  
 
   search(term: string): void {
     this.searchString.next(term);
-  }
-
-  delete(string: String) {  
-    string = '';  
-    console.log(string);
   }
   
   ngOnInit() {

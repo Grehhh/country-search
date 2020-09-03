@@ -2,7 +2,6 @@
     <h1>Country Search</h1>
     <div id="search-bar">
         <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-        <button (click)="delete(search-box.value)">Cancel</button>
         <ul class="search-result">
             <li *ngFor="let country of countries$ | async" >
               <a routerLink="/country-details/{{ country.name }}">{{ country.name }}</a>
